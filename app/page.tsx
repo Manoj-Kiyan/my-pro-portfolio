@@ -4,6 +4,9 @@ import HeroAnimation from "@/components/HeroAnimation";
 import NewsAnimation from "@/components/NewsAnimation";
 import FloatingShape from "@/components/FloatingShape";
 
+// 🔴 THE MAGIC FIX: Tells Next.js to NEVER cache this page. Always show live data!
+export const revalidate = 0;
+
 // 1. Define the Interface
 interface NewsItem {
   _id: string;
