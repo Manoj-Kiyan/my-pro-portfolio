@@ -3,6 +3,9 @@ import Image from "next/image";
 import HeroAnimation from "@/components/HeroAnimation";
 import NewsAnimation from "@/components/NewsAnimation";
 import FloatingShape from "@/components/FloatingShape";
+import AboutSection from "@/components/AboutSection";
+import ProjectsGrid from "@/components/ProjectsGrid";
+
 
 // 🔴 THE MAGIC FIX: Tells Next.js to NEVER cache this page. Always show live data!
 export const revalidate = 0;
@@ -41,16 +44,21 @@ export default async function Home() {
           <FloatingShape />
 
           <h1 className="hero-title relative z-10 font-display text-7xl font-bold uppercase tracking-tighter text-white md:text-[9rem] leading-[0.9]">
-            Creative <br /> Developer.
+            MANOJ KIYAN <br /> MK
           </h1>
           
           <p className="hero-subtext relative z-10 mt-8 max-w-lg font-sans text-xl text-neutral-400">
-            Crafting high-performance digital experiences.
+            ⓒBLUE FEATHER'Z
           </p>
 
         </section>
       </HeroAnimation>
+    {/* 🔴 NEW: SECTION 1.5: ABOUT ME (HOLO-BADGE) */}
+      <AboutSection />
 
+      {/* 🔴 NEW: SECTION 1.75: PROJECTS GRID */}
+      <ProjectsGrid />
+      
       {/* SECTION 2: CLIENT NEWS BOARD */}
       <section className="relative mx-auto max-w-7xl px-6 py-32 overflow-hidden">
         
