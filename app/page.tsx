@@ -8,7 +8,7 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import EducationTimeline from "@/components/EducationTimeline";
 import Footer from "@/components/Footer";
 
-// 🔴 THE MAGIC FIX: Tells Next.js to NEVER cache this page. Always show live data!
+// 🔴 Tells Next.js to NEVER cache this page. Always show live data!
 export const revalidate = 0;
 
 // 1. Define the Interface
@@ -54,16 +54,11 @@ export default async function Home() {
 
         </section>
       </HeroAnimation>
-    {/* 🔴 NEW: SECTION 1.5: ABOUT ME (HOLO-BADGE) */}
+
+      {/* SECTION 2: ABOUT ME (HOLO-BADGE) */}
       <AboutSection />
 
-      {/* 🔴 NEW: SECTION 1.75: PROJECTS GRID */}
-      <ProjectsGrid />
-
-      {/* 🔴 NEW: SECTION 1.8: EDUCATION & EXPERIENCE TIMELINE */}
-      <EducationTimeline />
-
-      {/* SECTION 2: CLIENT NEWS BOARD */}
+      {/* 🔴 SECTION 3: LATEST UPDATES (MOVED UP FOR BETTER UX) */}
       <section className="relative mx-auto max-w-7xl px-6 py-32 overflow-hidden">
         
         {/* Glowing Orbs for the Smoked Glass effect */}
@@ -126,8 +121,16 @@ export default async function Home() {
           </div>
         </NewsAnimation>
       </section>
-     {/* 🔴 NEW: THE 3D FOOTER */}
+
+      {/* SECTION 4: PROJECTS GRID */}
+      <ProjectsGrid />
+
+      {/* SECTION 5: EDUCATION & EXPERIENCE TIMELINE */}
+      <EducationTimeline />
+
+      {/* SECTION 6: THE 3D FOOTER */}
       <Footer />
+
     </main>
   );
 }
