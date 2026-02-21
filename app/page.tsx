@@ -6,6 +6,7 @@ import FloatingShape from "@/components/FloatingShape";
 import AboutSection from "@/components/AboutSection";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import EducationTimeline from "@/components/EducationTimeline";
+import Footer from "@/components/Footer";
 
 // 🔴 THE MAGIC FIX: Tells Next.js to NEVER cache this page. Always show live data!
 export const revalidate = 0;
@@ -125,7 +126,8 @@ export default async function Home() {
           </div>
         </NewsAnimation>
       </section>
-
+     {/* 🔴 NEW: THE 3D FOOTER */}
+      <Footer />
     </main>
   );
 }
