@@ -5,7 +5,7 @@ import NewsAnimation from "@/components/NewsAnimation";
 import FloatingShape from "@/components/FloatingShape";
 import AboutSection from "@/components/AboutSection";
 import ProjectsGrid from "@/components/ProjectsGrid";
-
+import EducationTimeline from "@/components/EducationTimeline";
 
 // 🔴 THE MAGIC FIX: Tells Next.js to NEVER cache this page. Always show live data!
 export const revalidate = 0;
@@ -58,7 +58,10 @@ export default async function Home() {
 
       {/* 🔴 NEW: SECTION 1.75: PROJECTS GRID */}
       <ProjectsGrid />
-      
+
+      {/* 🔴 NEW: SECTION 1.8: EDUCATION & EXPERIENCE TIMELINE */}
+      <EducationTimeline />
+
       {/* SECTION 2: CLIENT NEWS BOARD */}
       <section className="relative mx-auto max-w-7xl px-6 py-32 overflow-hidden">
         
