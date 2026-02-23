@@ -4,6 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar"; // 🔴 1. Imported your sleek new Navbar
 import BootSequence from "@/components/BootSequence"; // 🔴 2. Imported the pre-loader
+import CommandPalette from "@/components/CommandPalette";
+import CustomCursor from "@/components/CustomCursor";
 
 // 1. Setup Syne (Headline Font)
 const syne = Syne({
@@ -34,14 +36,17 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         // 🔴 Added your custom purple highlight globally!
-        className={`${syne.variable} ${spaceGrotesk.variable} antialiased bg-neutral-950 text-white selection:bg-[#6b21a8] selection:text-white`}
-      >
+        className={`${syne.variable} ${spaceGrotesk.variable} antialiased bg-neutral-950 text-white selection:bg-[#6b21a8] selection:text-white cursor-none`}
+        >
+        {/* 🔴 NEW: The Magnetic Cyber Cursor */}
+        <CustomCursor />
         {/* 🔴 THE FIX: Added the BootSequence right here at the very top! */}
         <BootSequence />
         
         {/* Placed Navbar outside SmoothScroll so it stays perfectly locked at the top */}
         <Navbar />
-        
+        {/* 🔴 NEW: The Command Center Modal */}
+        <CommandPalette />
         <SmoothScroll>
           {children}
         </SmoothScroll>
