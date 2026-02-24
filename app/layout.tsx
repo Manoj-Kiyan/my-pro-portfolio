@@ -33,7 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <>
+      {/* 🔴 THE FIX: Removed className="scroll-smooth" so it stops fighting Lenis! */}
+      <html lang="en">
       <body
         // 🔴 Added your custom purple highlight globally!
         className={`${syne.variable} ${spaceGrotesk.variable} antialiased bg-neutral-950 text-white selection:bg-[#6b21a8] selection:text-white cursor-none`}
@@ -52,5 +54,6 @@ export default function RootLayout({
         </SmoothScroll>
       </body>
     </html>
+    </>
   );
 }
