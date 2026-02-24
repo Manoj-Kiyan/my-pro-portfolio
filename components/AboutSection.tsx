@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function AboutSection() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
-  // 🔴 THE MAGIC: This calculates the exact 3D tilt based on mouse position
+  // 🔴 OPTIMIZATION: Moving the card instantly without triggering React re-renders!
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -16,36 +15,32 @@ export default function AboutSection() {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Calculate rotation limits (Max 15 degrees)
     const rotateX = ((y - centerY) / centerY) * -15; 
     const rotateY = ((x - centerX) / centerX) * 15;
 
-    setRotation({ x: rotateX, y: rotateY });
+    // Apply the math directly to the HTML element (Zero Lag!)
+    cardRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   };
 
   const handleMouseLeave = () => {
-    // Snap back to perfectly flat when mouse leaves
-    setRotation({ x: 0, y: 0 });
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
   };
 
   return (
     <section id="about" className="relative mx-auto flex min-h-[80vh] max-w-7xl items-center justify-center px-6 py-24 overflow-hidden">
       
-      {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-indigo-600/20 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="flex flex-col md:flex-row items-center justify-between w-full gap-16">
         
         {/* LEFT SIDE: The 3D Holo-Badge */}
-        <div 
-          className="perspective-1000 w-full md:w-1/2 flex justify-center"
-        >
+        <div className="perspective-1000 w-full md:w-1/2 flex justify-center">
           <div
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
-              transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
               transition: "transform 0.1s ease-out",
               transformStyle: "preserve-3d",
             }}
