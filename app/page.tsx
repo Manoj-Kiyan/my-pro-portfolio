@@ -6,13 +6,10 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import EducationTimeline from "@/components/EducationTimeline";
 import Footer from "@/components/Footer";
-// 🔴 THE NEW IMPORT: This is where your missing grid lines went! 
 import NewsGrid from "@/components/NewsGrid"; 
 
-// Tells Next.js to NEVER cache this page. Always show live data!
 export const revalidate = 0;
 
-// 2. Fetch Data (Upgraded to fetch PDFs and NEVER cache so you don't have to refresh!)
 async function getNews() {
   const query = `*[_type == "newsItem"] | order(publishedAt desc) {
     _id,
@@ -22,7 +19,6 @@ async function getNews() {
     summary,
     publishedAt
   }`;
-  // Force Next.js to fetch fresh data instantly
   return client.fetch(query, {}, { cache: 'no-store' });
 }
 
@@ -34,34 +30,29 @@ export default async function Home() {
       
       {/* SECTION 1: HERO */}
       <HeroAnimation>
-        <section className="relative flex h-[80vh] w-full flex-col items-center justify-center border-b border-neutral-900 overflow-hidden text-center">
-          
+        <section id="top" className="relative flex h-[80vh] w-full flex-col items-center justify-center border-b border-neutral-900 overflow-hidden text-center">
           <FloatingShape />
-
           <h1 className="hero-title relative z-10 font-display text-7xl font-bold uppercase tracking-tighter text-white md:text-[9rem] leading-[0.9]">
             MANOJ KIYAN <br /> MK
           </h1>
-          
           <p className="hero-subtext relative z-10 mt-8 max-w-lg font-sans text-xl text-neutral-400">
             ⓒBLUE FEATHER'Z
           </p>
-
         </section>
       </HeroAnimation>
 
-      {/* SECTION 2: ABOUT ME (HOLO-BADGE) */}
-      <AboutSection />
+      {/* SECTION 2: ABOUT ME */}
+      <div id="about">
+        <AboutSection />
+      </div>
 
       {/* SECTION 3: LATEST UPDATES */}
-      <section className="relative mx-auto max-w-7xl px-6 py-32 overflow-hidden">
-        
-        {/* Glowing Orbs for the Smoked Glass effect */}
+      <section id="news" className="relative mx-auto max-w-7xl px-6 py-32 overflow-hidden">
         <div className="pointer-events-none absolute left-1/4 top-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-[120px]"></div>
         <div className="pointer-events-none absolute right-1/4 bottom-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-[100px]"></div>
 
         <div className="mb-16 flex items-center gap-4">
           <span className="relative flex h-3 w-3">
-            {/* The Green Blinking Dot */}
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
           </span>
@@ -70,21 +61,26 @@ export default async function Home() {
           </h2>
         </div>
 
-        {/* 🔴 THE MAGIC UPGRADE: Your old code is safely inside this component now! */}
         <NewsAnimation>
           <NewsGrid news={news} />
         </NewsAnimation>
-
       </section>
 
-      {/* SECTION 4: PROJECTS GRID */}
-      <ProjectsGrid />
+      {/* SECTION 4: PROJECTS */}
+      <div id="projects">
+        <ProjectsGrid />
+      </div>
 
-      {/* SECTION 5: EDUCATION & EXPERIENCE TIMELINE */}
-      <EducationTimeline />
+      {/* SECTION 5: EXPERIENCE */}
+      <div id="experience">
+        <EducationTimeline />
+      </div>
 
-      {/* SECTION 6: THE 3D FOOTER */}
-      <Footer />
+      {/* 🔴 THE FIX: Removed the extra Contact section! The Footer is now the only one. */}
+      {/* SECTION 6: THE 3D FOOTER (Now holds the #contact ID) */}
+      <div id="contact">
+        <Footer />
+      </div>
 
     </main>
   );

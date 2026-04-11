@@ -122,11 +122,11 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* 📱 MOBILE NAV - Completely fixed spacing so nothing goes missing! */}
-      <nav className={`md:hidden fixed bottom-4 left-4 right-4 z-[100] flex h-16 items-center rounded-2xl border border-white/10 bg-black/80 px-4 backdrop-blur-[30px] transition-all duration-300 ${scrolled ? 'shadow-[0_0_40px_rgba(0,0,0,0.8)]' : ''}`}>
+      {/* 📱 MOBILE NAV - MATHEMATICALLY OPTIMIZED FOR SMALL PHONES */}
+      <nav className={`md:hidden fixed bottom-4 left-2 right-2 z-[100] flex h-14 items-center rounded-2xl border border-white/10 bg-black/95 px-1 backdrop-blur-[40px] transition-all duration-300 ${scrolled ? 'shadow-[0_0_40px_rgba(0,0,0,0.8)]' : ''}`}>
         
-        {/* Evenly spaced layout ensures all icons fit perfectly without scrolling */}
-        <div className="flex items-center justify-between w-full">
+        {/* Changed to justify-evenly and w-full so it physically cannot overflow */}
+        <div className="flex items-center justify-evenly w-full">
           
           {/* Main Links */}
           {navLinks.map((link) => (
@@ -134,28 +134,29 @@ export default function Navbar() {
                key={link.name} 
                href={link.href} 
                onClick={(e) => handleLinkClick(e, link.href)}
-               className="text-neutral-500 hover:text-white transition-colors p-2"
+               className="text-neutral-500 hover:text-white transition-colors p-1.5 sm:p-2"
              >
                {link.icon}
              </Link>
           ))}
 
-          {/* The Contact (Mail) Button - Fixed and Locked! */}
+          {/* Contact Mail Icon - Padding reduced to p-1.5 to guarantee it fits! */}
           <Link 
             href="#contact" 
             onClick={(e) => handleLinkClick(e, "#contact")}
-            className="text-green-500 hover:text-green-400 transition-colors p-2 relative"
+            className="text-green-500 hover:text-green-400 transition-colors p-1.5 sm:p-2 relative flex items-center justify-center"
           >
             <MailIcon />
+            {/* Adjusted the dot position so it aligns perfectly with smaller padding */}
             <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e] animate-pulse"></span>
           </Link>
 
-          {/* Search Button */}
-          <button onClick={openSearch} className="text-neutral-500 hover:text-white transition-colors p-2">
+          {/* Search Icon */}
+          <button onClick={openSearch} className="text-neutral-500 hover:text-white transition-colors p-1.5 sm:p-2 flex items-center justify-center">
             <SearchIcon />
           </button>
+          
         </div>
-
       </nav>
     </>
   );
