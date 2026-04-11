@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Syne, Space_Grotesk } from "next/font/google"; 
 import "./globals.css";
+//import "@/app/globals.css";
+
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar"; 
 import BootSequence from "@/components/BootSequence"; 
@@ -21,6 +23,7 @@ const spaceGrotesk = Space_Grotesk({
 
 // 🔴 THE UPGRADE: Premium SEO, OpenGraph, and Twitter Card Metadata
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mk-portfolio.vercel.app"),
   title: "MANOJ KIYAN | Creative Developer",
   description: "High-performance digital experiences, secure architectures, and futuristic web applications engineered by Manoj Kiyan.",
   keywords: ["Creative Developer", "Frontend Engineer", "Next.js", "React", "Cyber Security", "Blue Feather'z", "Web3", "UI/UX"],
@@ -75,7 +78,10 @@ export default function RootLayout({
         <Navbar />
         <CommandPalette />
         <SmoothScroll>
-          {children}
+          {/* 🔴 THE FIX: Added md:pl-20 to push content right of the sidebar! */}
+          <div className="md:pl-20">
+            {children}
+          </div>
         </SmoothScroll>
       </body>
     </html>

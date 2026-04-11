@@ -31,3 +31,28 @@ body {
 .perspective-1000 {
   perspective: 1000px;
 }
+
+/* 🔴 PREMIUM CYBER SCROLLBAR FOR COMMAND PALETTE */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Super thin and sleek */
+  height: 0px; /* Completely hides the ugly bottom horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Invisible track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(107, 33, 168, 0.3); /* Subtle dark purple */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 33, 168, 0.8); /* Glows brighter purple when hovered */
+}
+
+/* Firefox support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107, 33, 168, 0.5) transparent;
+}

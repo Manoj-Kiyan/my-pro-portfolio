@@ -20,7 +20,7 @@ const unlockAudio = () => {
   return audioCtx;
 };
 
-// 🔊 CYBER AUDIO 1: The Subtle Hover Tick (Volume increased!)
+// 🔊 CYBER AUDIO 1: The Subtle Hover Tick
 const playHoverSound = () => {
   try {
     const ctx = unlockAudio();
@@ -38,7 +38,7 @@ const playHoverSound = () => {
   } catch (e) {}
 };
 
-// 🔊 CYBER AUDIO 2: The Command Center Bootup (Volume increased!)
+// 🔊 CYBER AUDIO 2: The Command Center Bootup
 const playBootSound = () => {
   try {
     const ctx = unlockAudio();
@@ -57,7 +57,7 @@ const playBootSound = () => {
   } catch (e) {}
 };
 
-// 🔊 CYBER AUDIO 3: The Error Glitch (Volume increased!)
+// 🔊 CYBER AUDIO 3: The Error Glitch
 const playErrorSound = () => {
   try {
     const ctx = unlockAudio();
@@ -83,6 +83,20 @@ export default function CommandPalette() {
   // 👾 EASTER EGG STATES
   const [showMatrix, setShowMatrix] = useState(false);
   const [secretMessage, setSecretMessage] = useState("");
+
+  // 🔴 BUG FIX: Lock the background from scrolling when the search is open!
+  useEffect(() => {
+    if (isOpen || showMatrix) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    
+    // Cleanup in case the component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, showMatrix]);
 
   useEffect(() => {
     // 🔴 Attach the unlocker to the first click anywhere on the website!
@@ -203,7 +217,11 @@ export default function CommandPalette() {
               </kbd>
             </div>
 
-            <div className="mt-4 max-h-72 overflow-y-auto custom-scrollbar">
+            {/* 🔴 THE LENIS FIX: Added data-lenis-prevent="true" so Lenis ignores this box! */}
+            <div 
+              className="mt-4 max-h-72 overflow-y-auto overflow-x-hidden custom-scrollbar pr-2"
+              data-lenis-prevent="true"
+            >
               <h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-500 font-mono">
                 System Links
               </h3>
