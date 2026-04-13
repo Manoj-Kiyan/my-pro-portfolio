@@ -5,7 +5,6 @@ import { useRef } from "react";
 export default function AboutSection() {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 🔴 OPTIMIZATION: Moving the card instantly without triggering React re-renders!
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -18,7 +17,6 @@ export default function AboutSection() {
     const rotateX = ((y - centerY) / centerY) * -15; 
     const rotateY = ((x - centerX) / centerX) * 15;
 
-    // Apply the math directly to the HTML element (Zero Lag!)
     cardRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   };
 
@@ -28,79 +26,87 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative mx-auto flex min-h-[80vh] max-w-7xl items-center justify-center px-6 py-24 overflow-hidden">
+    <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-16 lg:gap-24 relative z-10">
       
-      <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-indigo-600/20 blur-[150px] rounded-full pointer-events-none"></div>
-
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-16">
+      {/* 🔴 LEFT SIDE: The Massive 3D Holo-Badge & Projector */}
+      <div className="perspective-1000 w-full lg:w-1/2 flex justify-center relative">
         
-        {/* LEFT SIDE: The 3D Holo-Badge */}
-        <div className="perspective-1000 w-full md:w-1/2 flex justify-center">
-          <div
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              transition: "transform 0.1s ease-out",
-              transformStyle: "preserve-3d",
-            }}
-            className="group relative w-full max-w-sm rounded-3xl border border-white/10 bg-neutral-900/40 backdrop-blur-xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-crosshair"
-          >
-            {/* Inner Glare Effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
+        {/* 🔴 THE FIX: Massive Seamless Volumetric Glow! (No sharp edges) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.15)_0%,rgba(59,130,246,0.05)_40%,transparent_70%)] blur-3xl pointer-events-none -z-20 animate-pulse"></div>
 
-            {/* Badge Header */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-6" style={{ transform: "translateZ(30px)" }}>
-              <div>
-                <h3 className="text-xs font-mono text-[#6b21a8] tracking-widest">CLEARANCE: LEVEL 9</h3>
-                <h2 className="text-4xl font-display font-bold text-white mt-1">MK</h2>
-              </div>
-              <div className="h-16 w-16 rounded-full border border-purple-500/50 bg-neutral-950 flex items-center justify-center shadow-[0_0_15px_rgba(107,33,168,0.5)]">
-                <span className="text-2xl">👾</span>
-              </div>
+        {/* The Holographic Projector Base */}
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] -z-10 pointer-events-none flex items-center justify-center" style={{ transform: 'rotateX(75deg)', perspective: '1000px' }}>
+           <div className="absolute inset-0 rounded-full border border-purple-500/30 animate-[spin_8s_linear_infinite]">
+              <div className="absolute top-0 left-1/2 w-4 h-4 bg-purple-500 rounded-full blur-[4px] -translate-x-1/2 -translate-y-1/2"></div>
+           </div>
+           <div className="absolute inset-8 rounded-full border-2 border-dashed border-blue-500/40 animate-[spin_12s_linear_infinite_reverse]"></div>
+           <div className="absolute inset-16 rounded-full bg-purple-600/20 border border-purple-400/50 shadow-[0_0_50px_rgba(168,85,247,0.8)] animate-pulse"></div>
+        </div>
+
+        {/* The 3D Card */}
+        <div
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            transition: "transform 0.1s ease-out",
+            transformStyle: "preserve-3d",
+          }}
+          className="group relative w-full max-w-[380px] rounded-3xl border border-white/20 bg-black/50 backdrop-blur-2xl p-10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] cursor-crosshair mt-[-20px]"
+        >
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
+
+          <div className="flex items-center justify-between border-b border-white/10 pb-8" style={{ transform: "translateZ(40px)" }}>
+            <div>
+              <h3 className="text-xs font-mono text-purple-400 tracking-widest font-bold">CLEARANCE: LEVEL 9</h3>
+              <h2 className="text-5xl font-display font-bold text-white mt-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">MK</h2>
             </div>
+            <div className="h-16 w-16 rounded-full border-2 border-purple-500 bg-neutral-950 flex items-center justify-center shadow-[0_0_20px_rgba(107,33,168,0.8)] relative overflow-hidden">
+              <div className="absolute inset-0 bg-purple-500/20 animate-pulse"></div>
+              <span className="text-2xl relative z-10">👾</span>
+            </div>
+          </div>
 
-            {/* Badge Stats */}
-            <div className="mt-8 space-y-6 font-mono text-sm" style={{ transform: "translateZ(40px)" }}>
-              <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                <span className="text-neutral-500 text-xs">ROLE</span>
-                <span className="text-white text-right font-sans font-semibold">Creative Developer<br/>Cyber Analyst</span>
-              </div>
-              <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                <span className="text-neutral-500 text-xs">CORE_STACK</span>
-                <span className="text-purple-300">Java, JS, SQL</span>
-              </div>
-              <div className="flex justify-between items-end pb-2">
-                <span className="text-neutral-500 text-xs">SYSTEM_STATUS</span>
-                <span className="text-green-400 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-green-500 animate-ping absolute"></span>
-                  <span className="h-2 w-2 rounded-full bg-green-500 relative"></span>
-                  ONLINE
+          <div className="mt-10 space-y-6 font-mono text-sm" style={{ transform: "translateZ(50px)" }}>
+            <div className="flex justify-between items-end border-b border-white/5 pb-3">
+              <span className="text-neutral-500 text-xs tracking-widest">ROLE</span>
+              <span className="text-white text-right font-sans font-semibold">Creative Developer<br/>Cyber Analyst</span>
+            </div>
+            <div className="flex justify-between items-end border-b border-white/5 pb-3">
+              <span className="text-neutral-500 text-xs tracking-widest">CORE_STACK</span>
+              <span className="text-purple-300 font-bold">Java, JS, SQL</span>
+            </div>
+            <div className="flex justify-between items-end pb-3">
+              <span className="text-neutral-500 text-xs tracking-widest">SYS_STATUS</span>
+              <span className="text-green-400 flex items-center gap-3 font-bold tracking-widest">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]"></span>
                 </span>
-              </div>
-            </div>
-
-            {/* Cyber Barcode Footer */}
-            <div className="mt-10 flex justify-center opacity-30" style={{ transform: "translateZ(20px)" }}>
-              <div className="h-8 w-full bg-[repeating-linear-gradient(90deg,transparent,transparent_3px,#fff_3px,#fff_6px)]"></div>
+                ONLINE
+              </span>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT SIDE: Text Terminal */}
-        <div className="w-full md:w-1/2 space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6b21a8]/30 bg-[#6b21a8]/10 px-4 py-2">
-            <span className="text-xs font-mono text-purple-400">~/system/whoami.exe</span>
+          <div className="mt-12 flex justify-center opacity-40" style={{ transform: "translateZ(30px)" }}>
+            <div className="h-8 w-full bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#fff_4px,#fff_8px)]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight">
-            Bridging the gap between <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Design</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Logic</span>.
-          </h2>
-          <p className="text-neutral-400 font-sans text-lg leading-relaxed">
-            I engineer high-performance digital experiences. Whether it's developing dynamic client platforms, designing secure database architectures, or building immersive 3D environments, I thrive on solving complex technical challenges.
-          </p>
         </div>
-
       </div>
-    </section>
+
+      {/* 🔴 RIGHT SIDE: The Restored Terminal Text */}
+      <div className="w-full lg:w-1/2 space-y-8 text-center lg:text-left relative z-10">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#6b21a8]/30 bg-[#6b21a8]/10 px-5 py-2.5">
+          <span className="text-xs font-mono text-purple-400">~/system/whoami.exe</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.1] text-white">
+          Bridging the gap <br className="hidden lg:block"/> between <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Design</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Logic</span>.
+        </h2>
+        <p className="text-neutral-400 font-sans text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+          I engineer high-performance digital experiences. Whether it's developing dynamic client platforms, designing secure database architectures, or building immersive 3D environments, I thrive on solving complex technical challenges.
+        </p>
+      </div>
+
+    </div>
   );
 }

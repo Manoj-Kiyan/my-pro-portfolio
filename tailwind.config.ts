@@ -16,8 +16,19 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      // 🔴 ADDED KEYFRAMES: This powers the green laser scan animation!
+      keyframes: {
+        scan: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+      },
+      animation: {
+        scan: 'scan 3s linear infinite',
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
