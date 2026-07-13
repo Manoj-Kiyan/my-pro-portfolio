@@ -24,9 +24,9 @@ const spaceGrotesk = Space_Grotesk({
 // 🔴 THE UPGRADE: Premium SEO, OpenGraph, and Twitter Card Metadata
 export const metadata: Metadata = {
   metadataBase: new URL("https://mk-portfolio.vercel.app"),
-  title: "MANOJ KIYAN | Creative Developer",
-  description: "High-performance digital experiences, secure architectures, and futuristic web applications engineered by Manoj Kiyan.",
-  keywords: ["Creative Developer", "Frontend Engineer", "Next.js", "React", "Cyber Security", "Blue Feather'z", "Web3", "UI/UX"],
+  title: "MANOJ KIYAN MK | Full Stack Developer & QA Automation Engineer",
+  description: "End-to-end web applications, automation frameworks, and robust software solutions engineered by Manoj Kiyan.",
+  keywords: ["Full Stack Developer", "Java Developer", "QA Automation Engineer", "Selenium", "Next.js", "React", "Core Java"],
   authors: [{ name: "Manoj Kiyan" }],
   creator: "Manoj Kiyan",
   
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://mk-portfolio.vercel.app", 
-    title: "MANOJ KIYAN | Cyber Analyst & Developer",
-    description: "Bridging the gap between Design & Logic. Explore my execution logs and system architecture.",
+    title: "MANOJ KIYAN MK | Java Developer & QA Automation Engineer",
+    description: "Delivering scalable Web & Automation solutions. Explore my projects and system architecture.",
     siteName: "MK | System Mainframe",
     images: [
       {
         url: "/og-image.jpg", // This is the image we are about to add!
         width: 1200,
         height: 630,
-        alt: "Manoj Kiyan - Creative Developer Holographic Badge",
+        alt: "Manoj Kiyan - Full Stack Developer Holographic Badge",
       },
     ],
   },
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   // 🔴 Twitter: Controls how it looks when tweeted!
   twitter: {
     card: "summary_large_image",
-    title: "MANOJ KIYAN | Creative Developer",
-    description: "High-performance digital experiences and futuristic web applications.",
+    title: "MANOJ KIYAN MK| Full Stack Developer & QA Automation Engineer",
+    description: "End-to-end web applications and automation frameworks.",
     images: ["/og-image.jpg"],
   },
   

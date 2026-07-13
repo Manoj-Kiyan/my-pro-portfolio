@@ -50,16 +50,16 @@ export default async function Home() {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-50"></div>
               
               <h1 className="hero-title font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white leading-[0.9]">
-                MANOJ KIYAN
+                MANOJ KIYAN MK
               </h1>
               
               <h2 className="mt-6 font-mono text-base md:text-lg text-purple-400 tracking-widest flex items-center gap-3">
                 <span className="h-2.5 w-2.5 bg-purple-500 animate-pulse rounded-full shadow-[0_0_10px_#a855f7]"></span>
-                {"< SYSTEM_ENGINEER />"}
+                {"< FULL_STACK_DEVELOPER & QA_AUTOMATION_ENGINEER />"}
               </h2>
               
               <p className="mt-8 max-w-lg font-sans text-neutral-400 leading-relaxed text-sm md:text-base">
-                Architecting high-performance digital experiences, secure architectures, and futuristic AI-integrated web applications. 
+                Passionate about writing clean, maintainable code and contributing to high-impact software products at scale. Actively seeking a challenging role to create measurable value. 
               </p>
               
               {/* 🔴 THE FIX: Using the Client Component Button instead of raw HTML! */}
@@ -78,11 +78,11 @@ export default async function Home() {
                 {/* The Photo Container */}
                 <div className="absolute inset-5 rounded-full bg-neutral-800 overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.3)]">
                    <img 
-                     src="https://ui-avatars.com/api/?name=Manoj+Kiyan&background=0D0D0D&color=a855f7&size=400" 
-                     alt="Manoj Kiyan" 
-                     className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 cursor-crosshair" 
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent pointer-events-none mix-blend-overlay"></div>
+                    src="/MK.jpeg" 
+                    alt="Manoj Kiyan" 
+                    className="w-full h-full object-cover transition-all duration-500 cursor-crosshair hover:scale-105" 
+                  />
+                   {/* Optional: Removed the purple overlay to keep the photo colors 100% natural */}
                 </div>
 
                 {/* Live Status Node */}
@@ -123,7 +123,8 @@ export default async function Home() {
             </div>
 
             {/* Box 4: Tech Radar */}
-            <div className="rounded-[2rem] bg-neutral-900/40 border border-white/5 backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between group transition-all duration-500 relative overflow-hidden">
+            <div className="rounded-[2rem] bg-neutral-900/40 border border-white/5 backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between group transition-all duration-500 relative overflow-hidden min-h-[300px]">
+               {/* Radar Sweep Background */}
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(107,33,168,0.3)_360deg)] animate-[spin_4s_linear_infinite] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none"></div>
                
@@ -132,8 +133,32 @@ export default async function Home() {
                  <span className="font-mono text-[10px] text-purple-400 animate-pulse border border-purple-500/30 px-2 py-1 rounded">Scanning...</span>
                </div>
                
-               <div className="flex flex-wrap gap-3 relative z-10 mt-8">
-                  {["Next.js", "Java", "SQL", "React", "Three.js", "Node.js"].map((tech, i) => (
+               {/* 🔴 NEW: Creative Central Radar / Hologram Visual */}
+               <div className="relative flex-1 flex items-center justify-center w-full my-8 z-10">
+                 {/* Concentric Radar Rings */}
+                 <div className="absolute inset-0 flex items-center justify-center">
+                   <div className="w-[120px] h-[120px] rounded-full border border-purple-500/20 absolute animate-[ping_3s_linear_infinite]"></div>
+                   <div className="w-[180px] h-[180px] rounded-full border border-purple-500/10 absolute animate-[ping_4s_linear_infinite]"></div>
+                   <div className="w-[240px] h-[240px] border border-dashed border-white/5 rounded-full absolute animate-[spin_10s_linear_infinite]"></div>
+                 </div>
+                 
+                 {/* Glowing Center Core */}
+                 <div className="relative w-16 h-16 rounded-2xl bg-neutral-950 border border-purple-500/30 shadow-[0_0_30px_rgba(107,33,168,0.5)] flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <div className="absolute inset-0 bg-purple-500/20 rounded-2xl animate-pulse"></div>
+                    <svg className="w-8 h-8 text-purple-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                 </div>
+                 
+                 {/* Floating Nodes */}
+                 <div className="absolute top-2 left-1/4 w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                 <div className="absolute bottom-4 right-1/4 w-2 h-2 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_#a855f7]"></div>
+                 <div className="absolute top-10 right-8 w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+               </div>
+               
+               {/* The Tech Pills */}
+               <div className="flex flex-wrap justify-center gap-3 relative z-10 mt-auto">
+                  {["Core Java", "Selenium", "SQL", "HTML5", "CSS3", "JavaScript"].map((tech) => (
                     <div key={tech} className="relative group/tech">
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-md blur opacity-0 group-hover/tech:opacity-75 transition duration-300"></div>
                       <span className="relative flex rounded-md border border-white/10 bg-black/80 px-4 py-1.5 font-mono text-[11px] font-semibold text-neutral-300 backdrop-blur-md transition-colors group-hover/tech:text-white group-hover/tech:border-purple-500/50">

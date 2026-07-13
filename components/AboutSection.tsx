@@ -70,11 +70,11 @@ export default function AboutSection() {
           <div className="mt-10 space-y-6 font-mono text-sm" style={{ transform: "translateZ(50px)" }}>
             <div className="flex justify-between items-end border-b border-white/5 pb-3">
               <span className="text-neutral-500 text-xs tracking-widest">ROLE</span>
-              <span className="text-white text-right font-sans font-semibold">Creative Developer<br/>Cyber Analyst</span>
+              <span className="text-white text-right font-sans font-semibold text-xs leading-tight">Java Developer<br/>QA Automation Engineer<br/>Full Stack Developer</span>
             </div>
             <div className="flex justify-between items-end border-b border-white/5 pb-3">
               <span className="text-neutral-500 text-xs tracking-widest">CORE_STACK</span>
-              <span className="text-purple-300 font-bold">Java, JS, SQL</span>
+              <span className="text-purple-300 font-bold">Java, Selenium, SQL</span>
             </div>
             <div className="flex justify-between items-end pb-3">
               <span className="text-neutral-500 text-xs tracking-widest">SYS_STATUS</span>
@@ -88,8 +88,29 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="mt-12 flex justify-center opacity-40" style={{ transform: "translateZ(30px)" }}>
-            <div className="h-8 w-full bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#fff_4px,#fff_8px)]"></div>
+          <div className="mt-12 flex justify-center opacity-70 hover:opacity-100 transition-opacity duration-300" style={{ transform: "translateZ(30px)" }}>
+            <a 
+              href="https://wa.me/918248992657" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 group/qr cursor-pointer"
+              title="Scan or click to chat on WhatsApp"
+            >
+              {/* Left Barcode Aesthetic */}
+              <div className="h-8 w-20 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#fff_4px,#fff_8px)] opacity-40"></div>
+              
+              {/* The Scannable WhatsApp QR Code */}
+              <div className="p-1 bg-white rounded shadow-[0_0_15px_rgba(34,197,94,0.3)] group-hover/qr:shadow-[0_0_25px_rgba(34,197,94,0.7)] group-hover/qr:scale-110 transition-all duration-300">
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/918248992657&color=000000&bgcolor=ffffff" 
+                  alt="Scan to WhatsApp" 
+                  className="w-10 h-10 object-contain"
+                />
+              </div>
+
+              {/* Right Barcode Aesthetic */}
+              <div className="h-8 w-20 bg-[repeating-linear-gradient(90deg,transparent,transparent_4px,#fff_4px,#fff_8px)] opacity-40"></div>
+            </a>
           </div>
         </div>
       </div>
@@ -100,11 +121,20 @@ export default function AboutSection() {
           <span className="text-xs font-mono text-purple-400">~/system/whoami.exe</span>
         </div>
         <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.1] text-white">
-          Bridging the gap <br className="hidden lg:block"/> between <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Design</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Logic</span>.
+          Delivering <br className="hidden lg:block"/> scalable <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Web</span> & <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Automation</span>.
         </h2>
         <p className="text-neutral-400 font-sans text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-          I engineer high-performance digital experiences. Whether it's developing dynamic client platforms, designing secure database architectures, or building immersive 3D environments, I thrive on solving complex technical challenges.
+          Results-oriented IT graduate with strong proficiency in Core Java, Selenium Automation Testing, Full Stack Web Development, and Oracle SQL. Demonstrated ability to design and deliver end-to-end solutions.
         </p>
+        
+        {/* KEY STRENGTHS SECTION */}
+        <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-2 max-w-lg mx-auto lg:mx-0">
+          {["Problem-Solving", "Quick Learner", "Team Collaboration", "Attention to Detail", "Analytical Thinking", "Communication", "Adaptability", "Time Management"].map((strength) => (
+             <span key={strength} className="rounded-full bg-white/5 px-3 py-1.5 text-[11px] font-mono text-neutral-300 border border-white/10 hover:bg-white/10 transition-colors">
+               {strength}
+             </span>
+          ))}
+        </div>
       </div>
 
     </div>

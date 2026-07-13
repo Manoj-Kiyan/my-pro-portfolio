@@ -4,36 +4,47 @@ export default function EducationTimeline() {
   const timelineData = [
     {
       id: 1,
-      year: "2024 — Present",
-      role: "Project Coordinator",
-      institution: "Amazon",
-      type: "EXPERIENCE",
-      description: "Coordinating cross-functional tech teams, managing digital project lifecycles, and ensuring seamless delivery of high-performance solutions.",
+      year: "CGPA: 7.89",
+      role: "B.Tech - Information Technology",
+      institution: "University College of Engineering, BIT Campus, Tiruchirappalli",
+      type: "DEGREE",
+      description: "Graduated in Information Technology with a strong foundation in core computer science principles and software development.",
       color: "text-green-400",
       border: "border-green-500/30",
       bg: "bg-green-500/10"
     },
     {
       id: 2,
-      year: "2023",
-      role: "Advanced Cyber Security Certification",
-      institution: "Security Institute",
-      type: "CERTIFICATE",
-      description: "Mastered network security protocols, vulnerability assessments, and secure database architecture.",
+      year: "Score: 80.7%",
+      role: "Higher Secondary Certificate",
+      institution: "Kalaimagal Matric Hr. Secondary School, Thiruchitrambalam",
+      type: "HSC",
+      description: "Completed higher secondary education with a focus on mathematics and science.",
       color: "text-[#6b21a8]",
       border: "border-[#6b21a8]/30",
       bg: "bg-[#6b21a8]/10"
     },
     {
       id: 3,
-      year: "2019 — 2023",
-      role: "Bachelor of Technology",
-      institution: "University",
-      type: "EDUCATION",
-      description: "Focused on software engineering, algorithms, and system architecture. Built a strong core foundation in Java, JavaScript, and SQL.",
+      year: "Score: 87.6%",
+      role: "Secondary School Leaving Cert.",
+      institution: "Kalaimagal Matric Hr. Secondary School, Thiruchitrambalam",
+      type: "SSLC",
+      description: "Completed secondary education, building strong fundamentals for future academic pursuits.",
       color: "text-indigo-400",
       border: "border-indigo-500/30",
       bg: "bg-indigo-500/10"
+    },
+    {
+      id: 4,
+      year: "Completed",
+      role: "Professional Certifications",
+      institution: "QSpider, Chennai Vadapalani",
+      type: "CERTIFIED",
+      description: "Completed specialized training in Core Java & Advanced Java (JDBC, Hibernate), Selenium WebDriver with Java (Automation Testing), and Oracle SQL.",
+      color: "text-cyan-400",
+      border: "border-cyan-500/30",
+      bg: "bg-cyan-500/10"
     }
   ];
 

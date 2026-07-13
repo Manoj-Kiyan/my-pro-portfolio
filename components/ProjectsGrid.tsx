@@ -1,34 +1,51 @@
 "use client";
 
 export default function ProjectsGrid() {
-  // Pre-loaded with your actual projects!
   const projects = [
     {
       id: "01",
-      title: "HubFire",
-      category: "3D Game Development",
-      description: "An immersive 3D endless runner mobile game featuring a synthwave aesthetic, high-speed neon grids, and dynamic water obstacles.",
-      tech: ["Unity", "C#", "3D Design"],
+      title: "EV Recharge Bunk Booking",
+      category: "Full Stack Web App",
+      description: "Built a real-time EV slot booking platform with separate Admin and User modules, using Firebase Auth and Firestore for live data.",
+      tech: ["HTML5", "CSS3", "JS", "Firebase", "Google Maps API"],
       accent: "group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]",
       gradient: "from-cyan-500/20 to-blue-600/20 group-hover:from-cyan-500/40 group-hover:to-blue-600/40"
     },
     {
       id: "02",
-      title: "TVK Client Portal",
-      category: "Frontend & UI/UX",
-      description: "A high-performance digital dashboard and public-facing portal featuring dynamic data integration, AI-generated visuals, and modern styling.",
-      tech: ["Next.js", "Tailwind", "Sanity CMS"],
+      title: "LinkedIn Automation",
+      category: "Test Automation",
+      description: "Built an automation script in Java and Selenium to extract LinkedIn profile and search data across multiple pages.",
+      tech: ["Java", "Selenium", "XPath", "CSS Selectors"],
       accent: "group-hover:shadow-[0_0_30px_rgba(234,179,8,0.4)]",
       gradient: "from-yellow-500/20 to-orange-600/20 group-hover:from-yellow-500/40 group-hover:to-orange-600/40"
     },
     {
       id: "03",
-      title: "Cyber-OS Architecture",
-      category: "Web Application",
-      description: "A futuristic, terminal-inspired portfolio and client gateway featuring 3D glassmorphism interactions and custom data schemas.",
-      tech: ["React", "TypeScript", "SQL"],
+      title: "AI-Powered Quiz Game",
+      category: "AI & Web Dev",
+      description: "Interactive quiz app that generates trivia questions, choices, and scoring from user prompts using a generative AI API.",
+      tech: ["JS", "HTML5", "CSS3", "REST APIs"],
       accent: "group-hover:shadow-[0_0_30px_rgba(107,33,168,0.4)]",
       gradient: "from-purple-500/20 to-indigo-600/20 group-hover:from-purple-500/40 group-hover:to-indigo-600/40"
+    },
+    {
+      id: "04",
+      title: "Professional Portfolio",
+      category: "Frontend Dev",
+      description: "Designed and built a personal portfolio site with smooth animations, mobile-first responsive layout, and basic SEO practices.",
+      tech: ["HTML5", "CSS3", "JS", "Tailwind/Bootstrap"],
+      accent: "group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]",
+      gradient: "from-green-500/20 to-emerald-600/20 group-hover:from-green-500/40 group-hover:to-emerald-600/40"
+    },
+    {
+      id: "05",
+      title: "Food Ordering & Travel App",
+      category: "Frontend Dev",
+      description: "Built the frontend for a combined portal, converting Figma wireframes into responsive Bootstrap pages with simple navigation.",
+      tech: ["HTML5", "CSS3", "JS", "Bootstrap", "Figma"],
+      accent: "group-hover:shadow-[0_0_30px_rgba(239,68,68,0.4)]",
+      gradient: "from-red-500/20 to-orange-600/20 group-hover:from-red-500/40 group-hover:to-orange-600/40"
     }
   ];
 

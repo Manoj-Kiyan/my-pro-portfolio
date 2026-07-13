@@ -199,9 +199,23 @@ export default function NewsGrid({ news }: { news: NewsItem[] }) {
 
           {/* Text Content */}
           <div className="p-8 overflow-y-auto custom-scrollbar flex-1 overscroll-contain">
-            <div className="mb-4 inline-flex items-center gap-2 rounded border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-[10px] text-purple-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-purple-500 animate-pulse"></span>
-              PUBLISHED: {selectedNews && new Date(selectedNews.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
+              <div className="inline-flex items-center gap-2 rounded border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-[10px] text-purple-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-500 animate-pulse"></span>
+                PUBLISHED: {selectedNews && new Date(selectedNews.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </div>
+              
+              {/* 🔴 NEW: DOWNLOAD BUTTON */}
+              {(selectedNews?.fileUrl || selectedNews?.image) && (
+                <a 
+                  href={selectedNews?.fileUrl ? `${selectedNews.fileUrl}?dl=` : `${urlFor(selectedNews.image).url()}?dl=`}
+                  download 
+                  className="inline-flex items-center gap-2 rounded border border-green-500/50 bg-green-500/10 px-4 py-1.5 font-mono text-[10px] text-green-400 hover:bg-green-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,197,94,0.4)] transition-all cursor-pointer uppercase tracking-wider"
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  DOWNLOAD FILE
+                </a>
+              )}
             </div>
             
             <h2 className="mb-6 font-display text-3xl font-bold text-white sm:text-4xl">

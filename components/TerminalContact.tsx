@@ -61,8 +61,24 @@ export default function TerminalContact() {
         setStep("sending");
         addLog("Message received.", "text-purple-400");
         
-        // 🔴 THE MAGIC: Cinematic Hacker Sending Sequence!
+        // 🔴 THE MAGIC: Cinematic Hacker Sending Sequence & Web3Forms Submit!
         addLog("> Encrypting payload (AES-256)...", "text-neutral-500");
+
+        // Actually send the email in the background via Web3Forms
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "2181c369-6b34-40c7-a545-8437a3e349d1",
+            email: email,
+            message: userInput,
+            subject: "New Message from Portfolio Terminal",
+          }),
+        }).catch((err) => console.error("Web3Forms error:", err));
+        
         
         setTimeout(() => {
           addLog("> Establishing secure tunnel...", "text-neutral-500");
@@ -74,13 +90,8 @@ export default function TerminalContact() {
 
         setTimeout(() => {
           addLog("[SUCCESS] Transmission complete. MK will contact you soon.", "text-green-400");
+          addLog("For more queries, contact this mail id: manojkiyan2k4@gmail.com", "text-purple-400");
           setStep("done");
-          
-          // Fallback to safely open their email client so it actually sends to you!
-          setTimeout(() => {
-            window.location.href = `mailto:contact@mk.dev?subject=New Transmission from ${email}&body=${userInput}`;
-          }, 1500);
-
         }, 2600);
       }
     }
