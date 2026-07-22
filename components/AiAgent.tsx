@@ -101,10 +101,18 @@ export default function AiAgent() {
     setIsTyping(true);
 
     try {
+      const clientApiKey = localStorage.getItem('mk_api_key') || "";
+      const clientApiProvider = localStorage.getItem('mk_api_provider') || "";
+      
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userText, model: selectedModel })
+        body: JSON.stringify({ 
+           message: userText, 
+           model: selectedModel,
+           apiKey: clientApiKey,
+           apiProvider: clientApiProvider
+        })
       });
       
       const data = await response.json();
@@ -159,7 +167,7 @@ export default function AiAgent() {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 custom-scrollbar bg-neutral-950">
+        <div data-lenis-prevent="true" className="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 custom-scrollbar bg-neutral-950">
           {messages.map((msg) => (
             <div key={msg.id} className={`flex w-full ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
               
@@ -213,7 +221,7 @@ export default function AiAgent() {
             <div ref={dropdownRef} className="absolute bottom-24 left-6 bg-neutral-800 border border-white/10 rounded-xl p-2 shadow-2xl z-50 animate-in slide-in-from-bottom-2">
               <div className="font-mono text-[10px] text-neutral-500 px-3 py-1 mb-1 uppercase tracking-widest border-b border-white/5 pb-2">Select Core</div>
               {/* 🔴 UPGRADED UI TEXT */}
-              {["GPT-4o", "Gemini 2.5 Flash", "Claude 3.5"].map((m) => (
+              {["GPT-4o", "Gemini 2.5 Flash", "Groq (Llama 3)"].map((m) => (
                 <button 
                   key={m}
                   onClick={() => { setSelectedModel(m); setShowModelSelect(false); }}
@@ -240,6 +248,7 @@ export default function AiAgent() {
               onChange={handleInput}
               onKeyDown={handleKeyDown}
               placeholder={`Message MK Intelligence (${selectedModel})...`}
+              data-lenis-prevent="true"
               className="w-full max-h-[200px] min-h-[44px] bg-transparent resize-none py-2.5 px-2 text-base text-white font-sans focus:outline-none custom-scrollbar placeholder-neutral-500"
               rows={1}
             />

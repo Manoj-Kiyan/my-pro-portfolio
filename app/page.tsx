@@ -9,8 +9,9 @@ import Footer from "@/components/Footer";
 import NewsGrid from "@/components/NewsGrid"; 
 import Link from "next/link";
 import AiAgent from "@/components/AiAgent"; 
-import AiButton from "@/components/AiButton"; // 🔴 Imported the new interactive button!
-
+import AiButton from "@/components/AiButton"; 
+import TopStatusBar from "@/components/TopStatusBar";
+import AdminAccess from "@/components/AdminAccess";
 export const revalidate = 0;
 
 async function getNews() {
@@ -32,7 +33,7 @@ export default async function Home() {
     <main className="min-h-screen bg-neutral-950 text-white selection:bg-[#6b21a8] selection:text-white pb-20 md:pb-0 overflow-x-hidden">
       
       {/* 🔴 SECTION 1: THE PRECISION BENTO DASHBOARD */}
-      <section id="top" className="relative min-h-screen w-full flex flex-col justify-center pt-32 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <section id="top" className="relative min-h-screen w-full flex flex-col justify-center pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
         
         {/* Background Ambient Glows */}
         <div className="pointer-events-none absolute top-[10%] left-[20%] -z-10 h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[150px]"></div>
@@ -40,6 +41,8 @@ export default async function Home() {
         <FloatingShape />
 
         <div className="w-full relative z-10 flex flex-col gap-6">
+          
+          <TopStatusBar />
           
           {/* 🟢 TOP ROW: Text Grid (Left) & Photo Grid (Right) */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
@@ -186,13 +189,16 @@ export default async function Home() {
         <div className="pointer-events-none absolute right-1/4 bottom-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-indigo-600/20 blur-[100px]"></div>
 
         <div className="mb-16 flex items-center gap-4">
-          <span className="relative flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
-          </span>
-          <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-400">
-            Latest Updates
-          </h2>
+          <div className="flex items-center gap-4">
+            <span className="relative flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+            </span>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-400">
+              Latest Updates
+            </h2>
+          </div>
+          <AdminAccess />
         </div>
 
         <NewsAnimation>
