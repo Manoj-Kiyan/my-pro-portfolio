@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=8A2BE2&height=250&section=header&text=BlueFeather'Z&fontSize=60&fontAlignY=35&fontColor=ffffff&desc=ᴡᴇ%20ᴍᴀᴋᴇ%20ꜰʀɪᴇɴᴅꜱʜɪᴘꜱ%20ꜰʟʏ%20🪶&descAlignY=55&descAlign=50" alt="Header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=8A2BE2&height=250&section=header&text=MK%20SYS_CORE&fontSize=60&fontAlignY=35&fontColor=ffffff&desc=Full-Stack%20Developer%20&%20QA%20Automation%20Engineer&descAlignY=55&descAlign=50" alt="Header" />
 
   <h1 align="center">Precision Bento Dashboard & AI Portfolio</h1>
 
@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    <a href="https://my-pro-portfolio-vercel.app"><strong>View Live Demo »</strong></a>
+    <a href="https://bluefeatherz.vercel.app/"><strong>View Live Demo »</strong></a>
     <!-- ⚠️ NOTE: Update the URL above to your actual live Vercel URL -->
   </p>
 
