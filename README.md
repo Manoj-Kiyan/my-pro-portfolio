@@ -8,7 +8,7 @@
   </p>
 
   <p align="center">
-    <a href="https://my-pro-portfolio-vercel.app"><strong>View Live Demo »</strong></a>
+    <a href="https://bluefeatherz.vercel.app/"><strong>View Live Demo »</strong></a>
     <!-- ⚠️ NOTE: Update the URL above to your actual live Vercel URL -->
   </p>
 
