@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function TopStatusBar() {
   const [time, setTime] = useState<Date | null>(null);
   const [text, setText] = useState("");
-  const fullText = "ENGINEERING THE FUTURE, ONE LINE AT A TIME.";
+  const fullText = "ᴡᴇ ᴍᴀᴋᴇ ꜰʀɪᴇɴᴅꜱʜɪᴘꜱ ꜰʟʏ 🪶";
   
   // Real-time clock tick
   useEffect(() => {
